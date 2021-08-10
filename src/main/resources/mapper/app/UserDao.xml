@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.app.dao.UserDao">
+    <select id="getUserById" resultType="UserEntity">
+        SELECT
+	        *
+        FROM tb_user
+        WHERE user_id = #{user_id}
+    </select>
+
+    <update id="updateUserById" parameterType="io.renren.modules.app.entity.UserEntity">
+        update tb_user
+	    set
+            user_id =  #{user_id},
+            username = #{username},
+            account_money = #{account_money}
+            bond = #{bond}
+            create_time = #{create_time}
+            money = #{money}
+        WHERE user_id = #{user_id}
+    </update>
+
+
+</mapper>
